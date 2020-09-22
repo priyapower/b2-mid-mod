@@ -8,12 +8,11 @@
 - DONE: DB Creation: JOIN - SurgeryDoctor (SURGERY, DOCTOR)
     - belongs to surgery
     - belongs to doctor
-
-    
-1. Spec Feature: User Story 1 - Surgery Index
+- DONE: Spec Feature: User Story 1 - Surgery Index
     - Can see titles (normal database)
     - Can see names of all doctors performing that surgery (JOINS)
     - titles are names that link to show page
+    
 1. Spec Feature: User Story 2 - Surgery Show Page
     - Click on title to get here from index page
     - Can see title and operating room of surgery (normal database)
