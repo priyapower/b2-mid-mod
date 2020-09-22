@@ -24,3 +24,12 @@
     </ul>
   <%end%>
 </section>
+<br>
+<section id="add-new-doc">
+  <h3>Add a doctor to this Surgery</h3>
+    <%= form_tag("/surgeries/#{@surgery.id}", method: :patch) do %>
+      <%= label_tag "Doctor's Full Name: " %>
+      <%= text_field_tag :doctor_name %>
+      <%= submit_tag 'Add this Doctor', class: :button %>
+    <% end %>
+</section>
