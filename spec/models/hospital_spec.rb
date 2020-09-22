@@ -7,5 +7,7 @@ RSpec.describe Hospital, type: :model do
 
   describe 'relationships' do
     it { should have_many :doctors}
+    it { should have_many(:surgery_doctors).through(:doctors)}
+    it { should have_many(:surgeries).through(:surgery_doctors)}
   end
 end
