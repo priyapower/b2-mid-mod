@@ -1,13 +1,15 @@
-1. DB Creation: Hospital (name)
+- DONE: DB Creation: Hospital (name)
     - has many doctors
-1. DB Creation: Doctor (name, speciality, university, HOSPITAL)
+- DONE: DB Creation: Doctor (name, speciality, university, HOSPITAL)
     - belongs to hospital
     - has many surgeries (JOIN TABLE)
-1. DB Creation: Surgery (title, day, room_number)
+- DONE: DB Creation: Surgery (title, day, room_number)
     - has many doctors (JOIN TABLE)
-1. DB Creation: JOIN - SurgeryDoctor (SURGERY, DOCTOR)
+- DONE: DB Creation: JOIN - SurgeryDoctor (SURGERY, DOCTOR)
     - belongs to surgery
     - belongs to doctor
+
+    
 1. Spec Feature: User Story 1 - Surgery Index
     - Can see titles (normal database)
     - Can see names of all doctors performing that surgery (JOINS)
