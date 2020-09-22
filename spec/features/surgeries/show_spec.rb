@@ -99,7 +99,7 @@ RSpec.describe "Surgery Show Page", type: :feature do
       end
     end
 
-    xit "can add an existing doctor to a surgery" do
+    it "can add an existing doctor to a surgery" do
       visit "/surgeries/#{@surgery_8.id}"
 
       within "#surgery-information" do
