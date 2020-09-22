@@ -69,7 +69,7 @@ RSpec.describe "Surgery Index Page", type: :feature do
       @surgery_11.surgery_doctors.create!(doctor:@doctor_6)
     end
 
-    it "can" do
+    it "can see index information for surgery: title and doctors names" do
       visit "/surgeries"
       within "#surgery-#{@surgery_1.id}" do
         expect(page).to have_content(@surgery_1.title)
@@ -78,6 +78,11 @@ RSpec.describe "Surgery Index Page", type: :feature do
         expect(page).to_not have_content(@surgery_2.title)
         expect(page).to_not have_content(@doctor_5.name)
       end
+    end
+
+    it "can see a link for a surgeries show page" do
+      visit "/surgeries"
+      expect(page).to have_link(@surgery_1.title)
     end
 
   end
