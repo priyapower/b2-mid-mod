@@ -1,0 +1,8 @@
+<h1>Surgeries at <%= link_to @hospital.name, "/hospitals/#{@hospital.name}" %> </h1>
+<%@ordered_by_room.each do |room_number, array_of_surgeries| %>
+  <section id="room-<%=room_number%>">
+    <%array_of_surgeries.each do |surgery| %>
+      <%= surgery.title %>
+    <%end %>
+  </section>
+<%end %>
