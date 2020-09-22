@@ -1,0 +1,18 @@
+<h1>Surgery: <%= @surgery.id %></h1>
+<section id="surgery-information">
+  <ul>
+    <p>Surgery Title: <%= @surgery.title %></p>
+  </ul>
+  <ul>
+    <p>Surgery Room Number: <%= @surgery.room_number %></p>
+  </ul>
+</section>
+<br>
+<section id="other-surgeries-by-day">
+  <h3>Other Surgeries Occuring on <%=@surgery.day%></h3>
+  <%@surgeries_by_day.each do |surgery|%>
+    <ul>
+      <%= link_to surgery.title, "/surgeries/#{surgery.id}" %>
+    </ul>
+  <%end%>
+</section>
