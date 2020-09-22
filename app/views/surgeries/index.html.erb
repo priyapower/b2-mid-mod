@@ -5,7 +5,7 @@
       <p><b>Surgery: <%=surgery.id%></b></p>
     </ul>
     <ul>
-      <p>Title: <%= surgery.title %></p>
+      <p>Surgery Title: <%= link_to surgery.title, "/surgeries/#{surgery.id}" %></p>
     </ul>
     <ul>
       <h4>Doctors on this Surgery</h4>
