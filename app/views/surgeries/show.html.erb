@@ -6,6 +6,14 @@
   <ul>
     <p>Surgery Room Number: <%= @surgery.room_number %></p>
   </ul>
+  <ul>
+    <h3>Doctors on this Surgery</h3>
+  </ul>
+  <%@surgery.doctors.each do |doctor|%>
+    <ul>
+      <%= doctor.name %>
+    </ul>
+  <%end%>
 </section>
 <br>
 <section id="other-surgeries-by-day">
