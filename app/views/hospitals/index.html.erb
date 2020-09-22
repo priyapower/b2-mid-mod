@@ -1,0 +1,6 @@
+<h1>All Hospitals</h1>
+<%@hospitals.each do |hospital|%>
+  <ul>
+    <%= link_to hospital.name, "/hospitals/#{hospital.id}" %>
+  </ul>
+<%end%>

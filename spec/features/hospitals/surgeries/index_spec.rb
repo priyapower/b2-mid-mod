@@ -76,7 +76,7 @@ RSpec.describe "Hospital/Surgeries Index Page", type: :feature do
       expect(page).to have_link(@hospital_2.name)
     end
 
-    it "can have a hospital show page" do
+    xit "can have a hospital show page" do
       visit "/hospitals"
 
       expect(page).to have_link(@hospital_2.name)
@@ -87,14 +87,14 @@ RSpec.describe "Hospital/Surgeries Index Page", type: :feature do
       expect(page).to have_link("Surgeries at this Hospital")
     end
 
-    it "can have a link to surgeries at hospital on show page" do
+    xit "can have a link to surgeries at hospital on show page" do
       visit "/hospitals/#{@hospital_2}"
       expect(page).to have_link("Surgeries at this Hospital")
       click_link "Surgeries at this Hospital"
       expect(current_path).to eq("/hospitals/#{@hospital_2.id}/surgeries")
     end
 
-    it "can show surgerie titles grouped by operating room" do
+    xit "can show surgerie titles grouped by operating room" do
       visit "/hospitals/#{@hospital_2.id}/surgeries"
 
       within "#room-#{surgery_6.room_number}" do
