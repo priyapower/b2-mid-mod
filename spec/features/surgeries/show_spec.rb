@@ -108,9 +108,9 @@ RSpec.describe "Surgery Show Page", type: :feature do
       end
 
       within "#add-new-doc" do
-        expect(page).to have_content("Add a doctor to this surgery")
-        fill_in field :name, with: @doctor_6.name
-        click_on "Submit"
+        expect(page).to have_content("Add a doctor to this Surgery")
+        fill_in :doctor_name, with: @doctor_6.name
+        click_on "Add this Doctor"
       end
 
       within "#surgery-information" do
