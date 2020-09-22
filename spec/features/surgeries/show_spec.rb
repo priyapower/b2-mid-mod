@@ -78,7 +78,6 @@ RSpec.describe "Surgery Show Page", type: :feature do
 
     it "can see pertinent info on show page" do
       visit "/surgeries/#{@surgery_1.id}"
-      save_and_open_page
       within "#surgery-information" do
         expect(page).to have_content(@surgery_1.title)
         expect(page).to have_content(@surgery_1.room_number)
@@ -88,6 +87,36 @@ RSpec.describe "Surgery Show Page", type: :feature do
         expect(page).to have_content("Other Surgeries Occuring on #{@surgery_1.day}")
         expect(page).to have_content(@surgery_12.title)
         expect(page).to have_content(@surgery_6.title)
+      end
+    end
+
+    it "can see only doctors names associate with surgery on show page" do
+      visit "/surgeries/#{@surgery_2.id}"
+      within "#surgery-information" do
+        expect(page).to have_content("Doctors on this Surgery")
+        expect(page).to have_content(@doctor_2.name)
+        expect(page).to have_content(@doctor_4.name)
+      end
+    end
+
+    xit "can add an existing doctor to a surgery" do
+      visit "/surgeries/#{@surgery_8.id}"
+
+      within "#surgery-information" do
+        expect(page).to have_content("Doctors on this Surgery")
+        expect(page).to have_content(@doctor_5.name)
+      end
+
+      within "#add-new-doc" do
+        expect(page).to have_content("Add a doctor to this surgery")
+        fill_in field :name, with: @doctor_6.name
+        click_on "Submit"
+      end
+
+      within "#surgery-information" do
+        expect(page).to have_content("Doctors on this Surgery")
+        expect(page).to have_content(@doctor_5.name)
+        expect(page).to have_content(@doctor_6.name)
       end
     end
   end
