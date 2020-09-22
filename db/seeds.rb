@@ -18,51 +18,62 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# FlightPassenger.destroy_all
-# Passenger.destroy_all
-# Flight.destroy_all
-# Airline.destroy_all
-#
-# schmelta = Airline.create!(name:"Schmelta")
-# punited = Airline.create!(name:"Punited")
-#
-# s001 = schmelta.flights.create!(number:001)
-# s002 = schmelta.flights.create!(number:002)
-# s003 = schmelta.flights.create!(number:003)
-#
-# p100 = punited.flights.create!(number:100)
-# p101 = punited.flights.create!(number:101)
-# p102 = punited.flights.create!(number:102)
-#
-# tim = Passenger.create!(name:"Tim", age:30)
-# brian = Passenger.create!(name:"Brian", age:22)
-# mike = Passenger.create!(name:"Mike", age:25)
-# kat = Passenger.create!(name:"Kat", age:35)
-# jeff = Passenger.create!(name:"Jeff", age:43)
-# leta = Passenger.create!(name:"Leta", age:29)
-# lovisa = Passenger.create!(name:"Lovisa", age:35)
-# priya = Passenger.create!(name:"Priya", age:32)
-# arique = Passenger.create!(name:"Arique", age:27)
-#
-# s001.flight_passengers.create!(passenger:tim)
-# s001.flight_passengers.create!(passenger:brian)
-#
-# s002.flight_passengers.create!(passenger:tim)
-# s002.flight_passengers.create!(passenger:kat)
-# s002.flight_passengers.create!(passenger:mike)
-#
-# s003.flight_passengers.create!(passenger:tim)
-# s003.flight_passengers.create!(passenger:brian)
-# s003.flight_passengers.create!(passenger:jeff)
-# s003.flight_passengers.create!(passenger:mike)
-# s003.flight_passengers.create!(passenger:kat)
-#
-# p100.flight_passengers.create!(passenger:jeff)
-# p100.flight_passengers.create!(passenger:leta)
-# p100.flight_passengers.create!(passenger:lovisa)
-#
-# p101.flight_passengers.create!(passenger:lovisa)
-# p101.flight_passengers.create!(passenger:leta)
-#
-# p102.flight_passengers.create!(passenger:priya)
-# p102.flight_passengers.create!(passenger:arique)
+SurgeryDoctor.destroy_all
+Surgery.destroy_all
+Doctor.destroy_all
+Hospital.destroy_all
+
+hospital_1 = Hospital.create!(name:"Downtown Hospital")
+hospital_2 = Hospital.create!(name:"Rural Hospital")
+
+doctor_1 = hospital_1.doctors.create!(name:"Jim Lake Jr", speciality:"", university:"")
+doctor_2 = hospital_1.doctors.create!(name:"Claire Nunez", speciality:"", university:"")
+doctor_3 = hospital_1.doctors.create!(name:"Barbara Lake", speciality:"", university:"")
+doctor_4 = hospital_1.doctors.create!(name:"Toby Domzalski", speciality:"", university:"")
+
+doctor_5 = hospital_2.doctors.create!(name:"Blinky Galadrigal", speciality:"", university:"")
+doctor_6 = hospital_2.doctors.create!(name:"Aarghaumont", speciality:"", university:"")
+doctor_7 = hospital_2.doctors.create!(name:"Walt Strickler", speciality:"", university:"")
+
+#doctors 1-4
+surgery_1 = Surgery.create!(title:"Appendix - age 13", day:"Monday", room_number:"B36")
+surgery_2 = Surgery.create!(title:"Gallbladder - age 24", day:"Tuesday", room_number:"B28")
+surgery_3 = Surgery.create!(title:"Brain Tumor - age 64", day:"Wednesday", room_number:"B34")
+surgery_4 = Surgery.create!(title:"Open Heart - age 54", day:"Thursday", room_number:"B36")
+surgery_5 = Surgery.create!(title:"Cesearian - age 28", day:"Friday", room_number:"B28")
+surgery_5 = Surgery.create!(title:"Appendix - age 34", day:"Monday", room_number:"B28")
+
+#doctors 5-7
+surgery_6 = Surgery.create!(title:"Cyst removal - age 17", day:"Monday", room_number:"154")
+surgery_7 = Surgery.create!(title:"Liver - age 47", day:"Tuesday", room_number:"168")
+surgery_8 = Surgery.create!(title:"Appendix - age 34", day:"Tuesday", room_number:"168")
+surgery_9 = Surgery.create!(title:"Cesarian - age 33", day:"Wednesday", room_number:"154")
+surgery_10 = Surgery.create!(title:"Appendix - age 19", day:"Thursday", room_number:"157")
+surgery_11 = Surgery.create!(title:"Open Heart - age 24", day:"Friday", room_number:"157")
+
+surgery_1.surgery_doctors.create!(doctor:doctor_1)
+surgery_1.surgery_doctors.create!(doctor:doctor_2)
+surgery_1.surgery_doctors.create!(doctor:doctor_3)
+surgery_1.surgery_doctors.create!(doctor:doctor_4)
+surgery_2.surgery_doctors.create!(doctor:doctor_4)
+surgery_2.surgery_doctors.create!(doctor:doctor_2)
+surgery_3.surgery_doctors.create!(doctor:doctor_1)
+surgery_3.surgery_doctors.create!(doctor:doctor_3)
+surgery_4.surgery_doctors.create!(doctor:doctor_1)
+surgery_4.surgery_doctors.create!(doctor:doctor_3)
+surgery_4.surgery_doctors.create!(doctor:doctor_4)
+surgery_5.surgery_doctors.create!(doctor:doctor_2)
+
+surgery_6.surgery_doctors.create!(doctor:doctor_5)
+surgery_6.surgery_doctors.create!(doctor:doctor_6)
+surgery_6.surgery_doctors.create!(doctor:doctor_7)
+surgery_7.surgery_doctors.create!(doctor:doctor_7)
+surgery_7.surgery_doctors.create!(doctor:doctor_8)
+surgery_8.surgery_doctors.create!(doctor:doctor_8)
+surgery_9.surgery_doctors.create!(doctor:doctor_6)
+surgery_9.surgery_doctors.create!(doctor:doctor_7)
+surgery_9.surgery_doctors.create!(doctor:doctor_8)
+surgery_10.surgery_doctors.create!(doctor:doctor_6)
+surgery_10.surgery_doctors.create!(doctor:doctor_7)
+surgery_11.surgery_doctors.create!(doctor:doctor_6)
+surgery_11.surgery_doctors.create!(doctor:doctor_8)
