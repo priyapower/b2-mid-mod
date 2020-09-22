@@ -18,14 +18,15 @@
     - Section: Other Surgeries on Sam eDay
       - Titles of all surgeries associated with same day (normal database)
       - ActiveRecord call from Surgery.all
-
-1. Spec Feature: User Story 3 - Surgery Show Page - add additional doctor to surgery
+- Done: Spec Feature: User Story 3 - Surgery Show Page - add additional doctor to surgery
     - A doctor must exist in the database
     - On show page - new field for adding doctor
     - Input doctor name
     - click submit
     - taken back to show
     - see new name of doctor
+
+    
 1. Spec Feature: User Story Extension - Surgery index NESTED under hospitals
     <!-- - Create hospital index page -->
     <!-- - Create unique hospital show page -->
