@@ -1,9 +1,20 @@
 <h1>All Surgeries</h1>
 <% @surgeries.each do |surgery| %>
   <section id="surgery-<%= surgery.id %>">
-    <%= surgery.name %>
+    <ul>
+      <p><b>Surgery: <%=surgery.id%></b></p>
+    </ul>
+    <ul>
+      <p>Title: <%= surgery.title %></p>
+    </ul>
+    <ul>
+      <h4>Doctors on this Surgery</h4>
+    </ul>
     <% surgery.doctors.each do |doctor| %>
-      <%= doctor.name %>
+      <ul>
+        <%= doctor.name %>
+      </ul>
     <% end %>
   </section>
+  <br>
 <% end %>

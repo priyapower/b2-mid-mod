@@ -20,7 +20,7 @@ RSpec.describe "Surgery Index Page", type: :feature do
       @surgery_3 = Surgery.create!(title:"Brain Tumor - age 64", day:"Wednesday", room_number:"B34")
       @surgery_4 = Surgery.create!(title:"Open Heart - age 54", day:"Thursday", room_number:"B36")
       @surgery_5 = Surgery.create!(title:"Cesearian - age 28", day:"Friday", room_number:"B28")
-      @surgery_5 = Surgery.create!(title:"Appendix - age 34", day:"Monday", room_number:"B28")
+      @surgery_12 = Surgery.create!(title:"Appendix - age 34", day:"Monday", room_number:"B28")
 
       @surgery_6 = Surgery.create!(title:"Cyst removal - age 17", day:"Monday", room_number:"154")
       @surgery_7 = Surgery.create!(title:"Liver - age 47", day:"Tuesday", room_number:"168")
@@ -33,14 +33,21 @@ RSpec.describe "Surgery Index Page", type: :feature do
       @surgery_1.surgery_doctors.create!(doctor:@doctor_2)
       @surgery_1.surgery_doctors.create!(doctor:@doctor_3)
       @surgery_1.surgery_doctors.create!(doctor:@doctor_4)
+
       @surgery_2.surgery_doctors.create!(doctor:@doctor_4)
       @surgery_2.surgery_doctors.create!(doctor:@doctor_2)
+
       @surgery_3.surgery_doctors.create!(doctor:@doctor_1)
       @surgery_3.surgery_doctors.create!(doctor:@doctor_3)
+
       @surgery_4.surgery_doctors.create!(doctor:@doctor_1)
       @surgery_4.surgery_doctors.create!(doctor:@doctor_3)
       @surgery_4.surgery_doctors.create!(doctor:@doctor_4)
+
       @surgery_5.surgery_doctors.create!(doctor:@doctor_2)
+
+      @surgery_12.surgery_doctors.create!(doctor:@doctor_4)
+      @surgery_12.surgery_doctors.create!(doctor:@doctor_1)
 
       @surgery_6.surgery_doctors.create!(doctor:@doctor_5)
       @surgery_6.surgery_doctors.create!(doctor:@doctor_6)
@@ -65,11 +72,11 @@ RSpec.describe "Surgery Index Page", type: :feature do
     it "can" do
       visit "/surgeries"
       within "#surgery-#{@surgery_1.id}" do
-        expect(page).to have_content(@surgery_1.name)
+        expect(page).to have_content(@surgery_1.title)
         expect(page).to have_content(@doctor_1.name)
         expect(page).to have_content(@doctor_2.name)
-        expect(page).to_NOT have_content(@surgery_2.name)
-        expect(page).to_NOT have_content(@doctor_3.name)
+        expect(page).to_not have_content(@surgery_2.title)
+        expect(page).to_not have_content(@doctor_5.name)
       end
     end
 
