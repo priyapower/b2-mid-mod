@@ -78,14 +78,13 @@ RSpec.describe "Surgery Show Page", type: :feature do
 
     it "can see pertinent info on show page" do
       visit "/surgeries/#{@surgery_1.id}"
-
+      save_and_open_page
       within "#surgery-information" do
         expect(page).to have_content(@surgery_1.title)
         expect(page).to have_content(@surgery_1.room_number)
       end
 
       within "#other-surgeries-by-day" do
-        # ActiveRecord call from Surgery.all
         expect(page).to have_content("Other Surgeries Occuring on #{@surgery_1.day}")
         expect(page).to have_content(@surgery_12.title)
         expect(page).to have_content(@surgery_6.title)
