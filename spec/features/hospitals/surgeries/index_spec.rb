@@ -20,7 +20,7 @@ RSpec.describe "Hospital/Surgeries Index Page", type: :feature do
       @surgery_3 = Surgery.create!(title:"Brain Tumor - age 64", day:"Wednesday", room_number:"B34")
       @surgery_4 = Surgery.create!(title:"Open Heart - age 54", day:"Thursday", room_number:"B36")
       @surgery_5 = Surgery.create!(title:"Cesearian - age 28", day:"Friday", room_number:"B28")
-      @surgery_12 = Surgery.create!(title:"Appendix - age 34", day:"Monday", room_number:"B28")
+      @surgery_12 = Surgery.create!(title:"Appendix - age 78", day:"Monday", room_number:"B28")
 
       @surgery_6 = Surgery.create!(title:"Cyst removal - age 17", day:"Monday", room_number:"154")
       @surgery_7 = Surgery.create!(title:"Liver - age 47", day:"Tuesday", room_number:"168")
@@ -76,38 +76,38 @@ RSpec.describe "Hospital/Surgeries Index Page", type: :feature do
       expect(page).to have_link(@hospital_2.name)
     end
 
-    xit "can have a hospital show page" do
+    it "can have a hospital show page" do
       visit "/hospitals"
 
       expect(page).to have_link(@hospital_2.name)
       click_link @hospital_2.name
 
-      expect(current_path).to eq("/hospitals/#{@hospital_2}")
+      expect(current_path).to eq("/hospitals/#{@hospital_2.id}")
       expect(page).to have_content(@hospital_2.name)
       expect(page).to have_link("Surgeries at this Hospital")
     end
 
-    xit "can have a link to surgeries at hospital on show page" do
-      visit "/hospitals/#{@hospital_2}"
+    it "can have a link to surgeries at hospital on show page" do
+      visit "/hospitals/#{@hospital_2.id}"
       expect(page).to have_link("Surgeries at this Hospital")
       click_link "Surgeries at this Hospital"
       expect(current_path).to eq("/hospitals/#{@hospital_2.id}/surgeries")
     end
 
-    xit "can show surgerie titles grouped by operating room" do
+    it "can show surgeries titles grouped by operating room" do
       visit "/hospitals/#{@hospital_2.id}/surgeries"
 
-      within "#room-#{surgery_6.room_number}" do
+      within "#room-#{@surgery_6.room_number}" do
         expect(page).to have_content(@surgery_6.title)
         expect(page).to have_content(@surgery_9.title)
       end
 
-      within "#room-#{surgery_7.room_number}" do
+      within "#room-#{@surgery_7.room_number}" do
         expect(page).to have_content(@surgery_7.title)
         expect(page).to have_content(@surgery_8.title)
       end
 
-      within "#room-#{surgery_10.room_number}" do
+      within "#room-#{@surgery_10.room_number}" do
         expect(page).to have_content(@surgery_10.title)
         expect(page).to have_content(@surgery_11.title)
       end
